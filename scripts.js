@@ -1,1 +1,1 @@
-var nome = prompt("Qual o seu nome?");
+//var nome = prompt("Qual o seu nome?");

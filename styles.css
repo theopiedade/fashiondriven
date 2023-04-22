@@ -1,4 +1,42 @@
 body {
     height: 1215px;
     width: 1366px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.container_principal {
+    background-color: #404EED;
+    width: 100%;
+    height: 89px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    font-family: 'New Rocker', cursive;
+    color:#FCFCFC;
+}
+.container_principal img {
+    margin-left: 80px;
+}
+
+.container_esquerda {
+    width: 695.51px;
+    height: 785px;
+    background-color: yellow;;
+}
+
+.container_meio {
+    display: flex;
+}
+
+.container_direita { 
+    width: 670.49px;
+    height: 785px;
+    background-color:#404EED;
+}
+
+.container_baixo {
+    width: 1366px;
+    height: 342px;
+    background-color: green;
 }
