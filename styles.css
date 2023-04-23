@@ -62,7 +62,7 @@ body {
 .container_esquerda {
     width: 695.51px;
     height: 785px;
-    background-color:yellow
+    background-color: white;
 }
 
 .container_area_pedido {
@@ -71,7 +71,6 @@ body {
     margin-left: 121.99px;
     margin-right: 173.17px;
     margin-top: 38.32px;
-    background-color: #FCFCFC;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto';
@@ -97,8 +96,8 @@ body {
     box-sizing: border-box;
     width: 100px;
     height: 100px;
-    background: #F2F2F2;
-    border: 0.5px solid #C4C4C4;
+    background: #E5E5E5;
+    border: 0.5px solid #E5E5E5;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -153,5 +152,77 @@ body {
 .container_baixo {
     width: 1366px;
     height: 342px;
-    background-color: green;
+    background-color: #F2F2F2;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.area_ultimos_pedidos {
+    margin-top: 30px;
+    margin-left: 126px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.botoes_ultimos_pedidos {
+    margin-top: 23px;
+    width: 604.45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+}
+
+.bup {
+    margin-right: 28px;
+    background: #C4C4C4;
+    border-radius: 10px;
+    border: 0px;
+    border-color: #C4C4C4;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FCFCFC;
+}
+
+.checked {
+    background: #404EED;
+    border-color: #404EED;
+}
+
+.area_camisetas {
+    margin-top: 21px;
+    width: 1150px;
+    height: 266.9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.camisetas_feitas {
+    width: 215.93px;
+    height: 256.56px;
+    background:#FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #232323;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.camisetas_feitas img {
+    width: 192.7px;
+    height: 195.3px;
+}
+
+.camisetas_feitas p {
+    font-weight: 700; 
 }
