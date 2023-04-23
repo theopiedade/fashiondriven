@@ -8,6 +8,9 @@ body {
 .container_principal {
     height: 1215px;
     width: 1366px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
 }
 
 .container_topo {
@@ -18,7 +21,7 @@ body {
     justify-content:space-between;
     align-items: center;
     color:#FCFCFC;
-    
+
 }
 
 .container_topo img {
@@ -48,20 +51,103 @@ body {
     margin-left: 5px;
 }
 
+.container_meio {
+    width: 100%;
+    height: 784px;
+    display: flex;
+    flex-direction: row;
+    background-color: yellowgreen;
+}
+
 .container_esquerda {
     width: 695.51px;
     height: 785px;
-    background-color: yellow;;
+    background-color:yellow
 }
 
-.container_meio {
+.container_area_pedido {
+    width: 400px;
+    height: 706px;
+    margin-left: 121.99px;
+    margin-right: 173.17px;
+    margin-top: 38.32px;
+    background-color: #FCFCFC;
     display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.box_selecao {
+    width: 393px;
+    height: 158.88px;
+}
+
+.container_imagens {
+    height: 129px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.circulo_selecao {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    background: #F2F2F2;
+    border: 0.5px solid #C4C4C4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo_selecao img {
+    width: 80px;
+    height: 80px;
+}
+
+.imagem_referencia {
+    width: 396.27px;
+    height: 70.97px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem_referencia input {
+    width: 396.27px;
+    height: 40px;
+    background: #F2F2F2;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #E5E5E5;
+}
+
+.confirmar_pedido {
+    margin-top: 24px;
+    width: 398.61px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color:#FCFCFC;
+    background: #C4C4C4;
+    border-radius: 10px;
+    border:0px;
 }
 
 .container_direita { 
     width: 670.49px;
     height: 785px;
     background-color:#404EED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container_baixo {
