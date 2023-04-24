@@ -104,6 +104,10 @@ body {
     align-items: center;
 }
 
+.selected {
+    border: 2px solid #404EED;
+}
+
 .circulo_selecao img {
     width: 80px;
     height: 80px;
@@ -219,6 +223,7 @@ body {
 }
 
 .camisetas_feitas img {
+    margin-top: 18px;
     width: 192.7px;
     height: 195.3px;
 }
