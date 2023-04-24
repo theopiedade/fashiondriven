@@ -236,5 +236,81 @@ body {
 }
 
 .criador p {
-    font-weight: 700; 
+    font-weight: 700;
+    margin-right: 3px;
+}
+
+.sucesso {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 74px;
+}
+
+.sucesso h1 {
+    margin-bottom: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    color: #232323;
+}
+
+.sucesso img {
+    margin-top: 30px;
+    width: 435.69px;
+    height: 523.53px;
+}
+
+.sucesso p {
+    margin-top: 15px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #404EED;
+}
+
+
+.erro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 74px;
+}
+
+.erro h1 {
+    margin-bottom: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    color: #232323;
+}
+
+.erro img {
+    margin-top: 30px;
+    width: 435.69px;
+    height: 523.53px;
+}
+
+.erro p {
+    margin-top: 15px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #404EED;
+}
+
+.nao_mostra {
+    display: none;
 }

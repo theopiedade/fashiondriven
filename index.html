@@ -25,11 +25,22 @@
         
            <div class="container_meio">
                 <div class="container_esquerda">
+                    <div class="sucesso nao_mostra">
+                        <h1>Pedido feito com sucesso!</h1>
+                        <img src="img/Blusa1.png"/>
+                        <p>Voltando para a página principal em 10s</p>
+                    </div>
+                    <div class="erro nao_mostra">
+                        <h1>Algo deu errado!</h1>
+                        <p>Um passarinho me contou que a imagem não é válida. Tente novamente!</p>
+                        <img src="img/erro.png"/>
+                        <p>Voltando para a página principal em 10s</p>
+                    </div>
                     <div class="container_area_pedido">
                         <div class="box_selecao modelo">
                             Escolha o modelo
                             <div class="container_imagens">
-                                <div class="circulo_selecao m1 selected" onclick="select('.modelo', '.m1')"><img src="img/tshirt.png"/></div>
+                                <div class="circulo_selecao m1" onclick="select('.modelo', '.m1')"><img src="img/tshirt.png"/></div>
                                 <div class="circulo_selecao m2" onclick="select('.modelo', '.m2')"><img src="img/Camiseta.png"/></div>
                                 <div class="circulo_selecao m3" onclick="select('.modelo', '.m3')"><img src="img/Mangalonga.png"/></div>
                             </div>
@@ -52,9 +63,9 @@
                         </div>
                         <div class="imagem_referencia">
                             Imagem de referência
-                            <input type="text" placeholder="Insira o link"></input>
+                            <input type="text" class="link" placeholder="Insira o link"></input>
                         </div>
-                            <input class="confirmar_pedido" type="button" value="Confirmar pedido" onclick=""></input>
+                            <input class="confirmar_pedido" type="button" value="Confirmar pedido" onclick="confirmar_pedido()" disabled></input>
                      </div>
                 </div>
                 <div class="container_direita"><img src="img/ilustração.png"/></div>
@@ -82,6 +93,9 @@
                 </div>
            </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
+
+
 </body>
 </html>
