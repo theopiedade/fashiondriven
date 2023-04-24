@@ -25,9 +25,9 @@ function select(tipo,item) {
       c2.classList.toggle('checked');
     }
   
-    const p1 = document.querySelector(".food .selected");
-    const p2 = document.querySelector(".drink .selected");
-    const p3 = document.querySelector(".deserve .selected");
+    const p1 = document.querySelector(".modelo .selected");
+    const p2 = document.querySelector(".gola .selected");
+    const p3 = document.querySelector(".tecido .selected");
   
     const bs = document.querySelector(".button_unchecked");
   
