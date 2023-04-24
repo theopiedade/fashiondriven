@@ -4,7 +4,7 @@ var nome = prompt("Qual o seu nome?");
 var elemento = document.querySelector(".botao_usuario");
 elemento.innerHTML = `Olá,  <p>${nome}!</p>`;
 
-var selecao = [-1,1,-1];
+var selecao = [-1,-1,-1];
 
 var modelo = ["t-shirt", "top-tank", "long"];
 var gola = ["v-neck", "round", "polo"];
@@ -17,7 +17,7 @@ function select(tipo,item) {
     var item_sel = parseInt(item.slice(-1));
     if (tipo == '.modelo') { selecao[0] = item_sel; }
     if (tipo == '.gola') { selecao[1] = item_sel; }
-    if (tipo == '.tecido') {  selecao[2] = item_sel; }
+    if (tipo == '.tecido') {  selecao[2] = item_sel; console.log("tecido: "+item_sel);}
    
    
 
