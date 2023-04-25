@@ -17,10 +17,7 @@ function select(tipo,item) {
     var item_sel = parseInt(item.slice(-1));
     if (tipo == '.modelo') { selecao[0] = item_sel; }
     if (tipo == '.gola') { selecao[1] = item_sel; }
-    if (tipo == '.tecido') {  selecao[2] = item_sel; console.log("tecido: "+item_sel);}
-   
-   
-
+    if (tipo == '.tecido') {  selecao[2] = item_sel; }
  
     const s1 = document.querySelector(tipo+" .selected");
     if (s1 !== null) { 
@@ -31,11 +28,15 @@ function select(tipo,item) {
     if (s2 !== s1) {
       s2.classList.toggle('selected');
     }
+    checa_botao();
+}
 
+function checa_botao() {
+    console.log("Checa botão");
     const p1 = document.querySelector(".modelo .selected");
     const p2 = document.querySelector(".gola .selected");
     const p3 = document.querySelector(".tecido .selected");
-  
+    
     const bs = document.querySelector(".confirmar_pedido");
 
     link = document.querySelector(".link").value;
@@ -43,9 +44,11 @@ function select(tipo,item) {
   
     if (p1 !== null && p2 !== null && p3 !== null && link.length > 4) {
        bs.removeAttribute("disabled");
+       console.log("Disabled removido");
     }
     else {
         bs.disabled = true;
+        console.log("Botão disabled");
     }
      
   }
