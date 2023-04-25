@@ -207,7 +207,7 @@ body {
     height: 266.9px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow-x: scroll;
     overflow: auto;
     overscroll-behavior-x: contain;

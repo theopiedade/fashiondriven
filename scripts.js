@@ -74,12 +74,11 @@ function checa_botao() {
   }
 
   function checar_pedido (answer) {
-        console.log(answer.data);
-        console.log(answer.status);
         if (answer.status === 201) {
             console.log("sucesso");
             setTimeout(remove_sucesso, 10000); 
             sucesso();
+            busca_blusas('Todos os modelos', '.b1');
         }
   }
 
