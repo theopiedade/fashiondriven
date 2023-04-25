@@ -60,6 +60,9 @@ body {
 }
 
 .container_esquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 695.51px;
     height: 785px;
     background-color: white;
@@ -73,6 +76,7 @@ body {
     margin-top: 38.32px;
     display: flex;
     flex-direction: column;
+
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -204,11 +208,17 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow-x: scroll;
+    overflow: auto;
+    overscroll-behavior-x: contain;
+    overflow-y:hidden;
 }
 
+
 .camisetas_feitas {
-    width: 215.93px;
-    height: 256.56px;
+    width: 216px;
+    height: 257px;
+    margin-right: 18px;
     background:#FFFFFF;
     font-family: 'Roboto';
     font-style: normal;
@@ -224,11 +234,14 @@ body {
 
 .camisetas_feitas img {
     margin-top: 18px;
+    margin-left: 11px;
+    margin-right: 11px;
     width: 192.7px;
-    height: 195.3px;
+    height: 190px;
 }
 
 .criador {
+    margin-top: 9px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -241,6 +254,8 @@ body {
 }
 
 .sucesso {
+    width: 425px;
+    height: 634px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -277,6 +292,8 @@ body {
 
 
 .erro {
+    width: 425px;
+    height: 634px;
     display: flex;
     flex-direction: column;
     justify-content: center;

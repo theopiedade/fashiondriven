@@ -3,6 +3,8 @@ axios.defaults.headers.common['Authorization'] = 'MYJXM2hWhW6XPZBVBwjAsy83';
 var nome = prompt("Qual o seu nome?");
 var elemento = document.querySelector(".botao_usuario");
 elemento.innerHTML = `Olá,  <p>${nome}!</p>`;
+var busca = "Todos os modelos";
+busca_blusas(busca, '.b1');
 
 var selecao = [-1,-1,-1];
 
@@ -42,7 +44,7 @@ function checa_botao() {
     link = document.querySelector(".link").value;
     console.log(link);
   
-    if (p1 !== null && p2 !== null && p3 !== null && link.length > 4) {
+    if (p1 !== null && p2 !== null && p3 !== null && link.length > 0) {
        bs.removeAttribute("disabled");
        console.log("Disabled removido");
     }
@@ -81,15 +83,12 @@ function checa_botao() {
         }
   }
 
-  function erro_pedido () {
-    console.log(answer.data);
-    console.log(answer.status);
-    if (answer.status === 201) {
-        console.log("sucesso");
-        setTimeout(remove_deu_erro, 10000); 
-        erro();
-    }
+  function erro_pedido (answer) {
+    console.log("Deu erro");
+    setTimeout(remove_deu_erro, 10000); 
+    deu_erro();
   }
+  
 
   function sucesso() {
     document.querySelector(".container_area_pedido").classList.add("nao_mostra");
@@ -107,6 +106,39 @@ function checa_botao() {
   }
 
   function remove_deu_erro() {
-    document.querySelector(".container_area_pedido").classList.add("nao_mostra");
-    document.querySelector(".erro").classList.remove("nao_mostra");   
+    document.querySelector(".container_area_pedido").classList.remove("nao_mostra");
+    document.querySelector(".erro").classList.add("nao_mostra");   
   }
+
+  function busca_blusas(tipos, botao) {
+    document.querySelector(".botoes_ultimos_pedidos .checked").classList.remove("checked");
+    document.querySelector(".botoes_ultimos_pedidos "+botao).classList.add("checked");
+    busca = tipos;
+    const query = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
+    query.then(listar_blusas);
+  }
+  
+  function listar_blusas(answer) {
+    let elemento = document.querySelector('.area_camisetas');
+    elemento.innerHTML ="";
+
+    for (let i=0;i<=answer.data.length;i++) { 
+            if (busca == 'Todos os modelos') {
+                elemento.innerHTML += `
+                <div class="camisetas_feitas">
+                <img src="${answer.data[i].image}"/>
+                <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
+                </div>
+                `;
+            }
+            else if (answer.data[i].model == busca) {
+                elemento.innerHTML += `
+                <div class="camisetas_feitas">
+                <img src="${answer.data[i].image}"/>
+                <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
+                </div>
+                `;
+            }
+
+    }
+ }

@@ -63,7 +63,7 @@
                         </div>
                         <div class="imagem_referencia">
                             Imagem de referência
-                            <input type="text" class="link" onkeydown="checa_botao()" placeholder="Insira o link"></input>
+                            <input type="text" class="link" onkeyup="checa_botao()" onblur="checa_botao()" placeholder="Insira o link"></input>
                         </div>
                             <input class="confirmar_pedido" type="button" value="Confirmar pedido" onclick="confirmar_pedido()" disabled></input>
                      </div>
@@ -75,10 +75,10 @@
                 <div class="area_ultimos_pedidos">
                     Últimos pedidos
                     <div class="botoes_ultimos_pedidos">
-                        <input class="bup checked" type="button" value="Todos os modelos" onclick=""></input>
-                        <input class="bup" type="button" value="T-Shirt" onclick=""></input>
-                        <input class="bup" type="button" value="Camiseta" onclick=""></input>
-                        <input class="bup" type="button" value="Manga longa" onclick=""></input>
+                        <input class="bup b1 checked" type="button" value="Todos os modelos" onclick="busca_blusas('Todos os modelos','.b1')"></input>
+                        <input class="bup b2" type="button" value="T-Shirt" onclick="busca_blusas('t-shirt','.b2')"></input>
+                        <input class="bup b3" type="button" value="Camiseta" onclick="busca_blusas('top-rank','.b3')"></input>
+                        <input class="bup b4" type="button" value="Manga longa" onclick="busca_blusas('long','.b4')"></input>
                     </div>
                     <div class="area_camisetas">
                         <div class="camisetas_feitas">
