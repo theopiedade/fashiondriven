@@ -328,6 +328,17 @@ body {
     color: #404EED;
 }
 
+.mensagem {
+    margin-top: 15px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: red;
+}
+
 .nao_mostra {
     display: none;
 }
