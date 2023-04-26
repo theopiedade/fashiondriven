@@ -14,6 +14,9 @@ var tecido = ["silk", "cotton", "polyester"];
 
 var link; 
 
+var erro_mensagem;
+var erro_codigo;
+
 function select(tipo,item) {
 
     var item_sel = parseInt(item.slice(-1));
@@ -84,6 +87,9 @@ function checa_botao() {
 
   function erro_pedido (answer) {
     console.log("Deu erro");
+    console.log("Erro:"+answer.code+" Msg:"+answer.message);
+    erro_codigo = answer.code;
+    erro_mensagem = answer.message;
     setTimeout(remove_deu_erro, 10000); 
     deu_erro();
   }
@@ -96,12 +102,16 @@ function checa_botao() {
 
   function remove_sucesso() {
     document.querySelector(".container_area_pedido").classList.remove("nao_mostra");
+    document.querySelector(".modelo .selected").classList.remove('selected');
+    document.querySelector(".gola .selected").classList.remove('selected');
+    document.querySelector(".tecido .selected").classList.remove('selected');
     document.querySelector(".sucesso").classList.add("nao_mostra");   
   }
 
   function deu_erro() {
     document.querySelector(".container_area_pedido").classList.add("nao_mostra");
-    document.querySelector(".erro").classList.remove("nao_mostra");   
+    document.querySelector(".erro").classList.remove("nao_mostra");
+    document.querySelector(".erro .mensagem").innerHTML=`${erro_codigo} - ${erro_mensagem}`;   
   }
 
   function remove_deu_erro() {
@@ -131,13 +141,22 @@ function checa_botao() {
                 `;
             }
             else if (answer.data[i].model == busca) {
-                elemento.innerHTML += `
-                <div class="camisetas_feitas">
-                <img src="${answer.data[i].image}"/>
-                <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
-                </div>
-                `;
-            }
+                        console.log("Id: "+answer.data[i].id+" Model: "+answer.data[i].model+ " Imagem: "+answer.data[i].image);
+                        elemento.innerHTML += `
+                        <div class="camisetas_feitas" onclick="selecao_ultimos_pedidos('${answer.data[i].id}')">
+                        <img src="${answer.data[i].image}"/>
+                        <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
+                        </div>
+                        `;
+                }
+       }
+}
 
+
+ function selecao_ultimos_pedidos(item) {
+    console.log("Entrou no selecao_ultimos_pedidos");
+    let pergunta = confirm("Deseja mesmo adquirir esse pedido?");
+    if (pergunta === true) {
+        alert("Encomenda feita! id: "+item);
     }
  }
