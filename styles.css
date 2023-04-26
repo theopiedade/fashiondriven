@@ -73,7 +73,7 @@ body {
     height: 706px;
     margin-left: 121.99px;
     margin-right: 173.17px;
-    margin-top: 38.32px;
+    margin-top: 18px;
     display: flex;
     flex-direction: column;
 
@@ -85,12 +85,13 @@ body {
 }
 
 .box_selecao {
+    margin-top: 31px;
     width: 393px;
     height: 158.88px;
 }
 
 .container_imagens {
-    height: 129px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -100,12 +101,21 @@ body {
     box-sizing: border-box;
     width: 100px;
     height: 100px;
-    background: #E5E5E5;
-    border: 0.5px solid #E5E5E5;
+    background: #F2F2F2;
+    border: 0.5px solid #F2F2F2;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container_tipos {
+    margin-left: 18px;
+    margin-top: 3px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .selected {
@@ -118,6 +128,7 @@ body {
 }
 
 .imagem_referencia {
+    margin-top: 10px;
     width: 396.27px;
     height: 70.97px;
     display: flex;

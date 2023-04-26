@@ -6,7 +6,7 @@ elemento.innerHTML = `Olá,  <p>${nome}!</p>`;
 var busca = "Todos os modelos";
 busca_blusas(busca, '.b1');
 
-var selecao = [-1,-1,-1];
+var selecao = ["","",""];
 
 var modelo = ["t-shirt", "top-tank", "long"];
 var gola = ["v-neck", "round", "polo"];
@@ -20,9 +20,9 @@ var erro_codigo;
 function select(tipo,item) {
 
     var item_sel = parseInt(item.slice(-1));
-    if (tipo == '.modelo') { selecao[0] = item_sel; }
-    if (tipo == '.gola') { selecao[1] = item_sel; }
-    if (tipo == '.tecido') {  selecao[2] = item_sel; }
+    if (tipo == '.modelo') { selecao[0] = modelo[item_sel]; }
+    if (tipo == '.gola') { selecao[1] = gola[item_sel]; }
+    if (tipo == '.tecido') {  selecao[2] = tecido[item_sel]; }
  
     const s1 = document.querySelector(tipo+" .selected");
     if (s1 !== null) { 
@@ -59,15 +59,16 @@ function checa_botao() {
   }
 
 
-  function confirmar_pedido () {
+  function confirmar_pedido (dono) {
+    if (dono == null || dono == undefined) { dono = nome; }
 
     const data = {
-        "model": modelo[selecao[0]],
-        "neck": gola[selecao[1]],
-        "material": tecido[selecao[2]],
+        "model": selecao[0],
+        "neck": selecao[1],
+        "material": selecao[2],
         "image": link,
-        "owner": nome,
-        "author": nome
+        "owner": dono,
+        "author": dono
     }
     console.log(data);
 
@@ -102,11 +103,12 @@ function checa_botao() {
 
   function remove_sucesso() {
     document.querySelector(".container_area_pedido").classList.remove("nao_mostra");
-    document.querySelector(".modelo .selected").classList.remove('selected');
-    document.querySelector(".gola .selected").classList.remove('selected');
-    document.querySelector(".tecido .selected").classList.remove('selected');
-    document.querySelector(".sucesso").classList.add("nao_mostra");   
-  }
+    document.querySelector(".sucesso").classList.add("nao_mostra");  
+    document.querySelector(".modelo .selected").classList.remove;
+    document.querySelector(".gola .selected").classList.remove;
+    document.querySelector(".tecido .selected").classList.remove;
+    console.log("Remove sucesso completo");
+ }
 
   function deu_erro() {
     document.querySelector(".container_area_pedido").classList.add("nao_mostra");
@@ -131,10 +133,12 @@ function checa_botao() {
     let elemento = document.querySelector('.area_camisetas');
     elemento.innerHTML ="";
 
+
     for (let i=0;i<=answer.data.length;i++) { 
-            if (busca == 'Todos os modelos') {
+        let d = answer.data;
+        if (busca == 'Todos os modelos') {
                 elemento.innerHTML += `
-                <div class="camisetas_feitas">
+                <div class="camisetas_feitas" onclick="selecao_ultimos('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                 <img src="${answer.data[i].image}"/>
                 <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
                 </div>
@@ -143,7 +147,7 @@ function checa_botao() {
             else if (answer.data[i].model == busca) {
                         console.log("Id: "+answer.data[i].id+" Model: "+answer.data[i].model+ " Imagem: "+answer.data[i].image);
                         elemento.innerHTML += `
-                        <div class="camisetas_feitas" onclick="selecao_ultimos_pedidos('${answer.data[i].id}')">
+                        <div class="camisetas_feitas" onclick="selecao_ultimos('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                         <img src="${answer.data[i].image}"/>
                         <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
                         </div>
@@ -153,10 +157,14 @@ function checa_botao() {
 }
 
 
- function selecao_ultimos_pedidos(item) {
-    console.log("Entrou no selecao_ultimos_pedidos");
+ function selecao_ultimos(model, neck, material, image, owner) {
     let pergunta = confirm("Deseja mesmo adquirir esse pedido?");
     if (pergunta === true) {
-        alert("Encomenda feita! id: "+item);
+        alert("Encomenda feita! modelo: "+model+" neck:"+neck+" material:"+material+" image:"+image+" owner:"+owner);
+        selecao[0]=model;
+        selecao[1]=neck;
+        selecao[2]=material;
+        link = image;
+        confirmar_pedido(owner);
     }
  }
