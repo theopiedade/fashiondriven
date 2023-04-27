@@ -149,6 +149,7 @@ function checa_botao() {
                 <div class="camisetas_feitas" onclick="selecao_ultimos_modal('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                 <img src="${answer.data[i].image}"/>
                 <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
+                <div class="criador">-</div>
                 </div>
                 `;
             }
@@ -158,6 +159,7 @@ function checa_botao() {
                         <div class="camisetas_feitas" onclick="selecao_ultimos_modal('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                         <img src="${answer.data[i].image}"/>
                         <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
+                        <div class="criador">-</div>
                         </div>
                         `;
                 }
@@ -211,5 +213,37 @@ function confirmar_pedido_modal(model, neck, material, image, owner) {
     selecao[1]=neck;
     selecao[2]=material;
     link = image;
-    confirmar_pedido(owner);
+    document.querySelector('.sucesso_modal').innerHTML = `
+    <img src="${image}"/>
+    <div class="sucesso_modal_direita">
+    <h1>Pedido feito com sucesso!</h1>
+    <input class="button checked" type="button" value="Fechar" onclick="confirmar_pedido_modal(fechar_sucesso_modal())"></input>
+`;
+    const data = {
+        "model": selecao[0],
+        "neck": selecao[1],
+        "material": selecao[2],
+        "image": link,
+        "owner": owner,
+        "author": owner
+    }
+    console.log(data);
+
+    const query = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', data);
+    query.then(checar_pedido_modal);
+    query.catch(erro_pedido_modal);
+}
+
+function checar_pedido_modal (answer) {
+    if (answer.status === 201) {
+        console.log("sucesso");
+        busca_blusas('Todos os modelos', '.b1');
+    }
+}
+
+function erro_pedido_modal (answer) {
+    console.log("Deu erro");
+    console.log("Erro:"+answer.code+" Msg:"+answer.message);
+    erro_codigo = answer.code;
+    erro_mensagem = answer.message;
 }
