@@ -101,7 +101,11 @@ function checa_botao() {
 
   function sucesso() {
     document.querySelector(".container_area_pedido").classList.add("nao_mostra");
-    document.querySelector(".sucesso").classList.remove("nao_mostra");   
+    document.querySelector(".sucesso").classList.remove("nao_mostra"); 
+    document.querySelector(".sucesso").innerHTML = `
+    <h1>Pedido feito com sucesso!</h1>
+                        <img src="${link}"/>
+                        <p>Voltando para a página principal em 10s</p>`;
   }
 
   function remove_sucesso() {

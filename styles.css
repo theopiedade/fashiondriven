@@ -1,15 +1,14 @@
 body {
-    height: 1215px;
     width: 1366px;
+    height: 1294px;
     font-family: 'Roboto', sans-serif;
     font-family: 'New Rocker', cursive;
     overflow:auto;
 }
 
 .container_principal {
-    height: 1215px;
     width: 1366px;
-    background-color: red;
+    height: 1294px;
     display: flex;
     flex-direction: column;
 }
@@ -65,7 +64,6 @@ body {
     align-items: center;
     width: 695.51px;
     height: 785px;
-    background-color: white;
 }
 
 .container_area_pedido {
