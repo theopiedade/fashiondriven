@@ -353,3 +353,87 @@ body {
 .nao_mostra {
     display: none;
 }
+
+.bloco_modal {
+    width: 814px;
+    height: 592px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    position: absolute;
+    left: 276px;
+    top: 200px;
+    display: none;
+}
+
+
+.sucesso_modal {
+    display: flex;
+    flex-direction: row;
+}
+
+.sucesso_modal img {
+    width: 410px;
+    height: 513px;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+
+.sucesso_modal_direita {
+    margin-left: 19px;
+    margin-right: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.sucesso_modal_direita h1 {
+    margin-top: 79px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center; 
+    color: #232323;
+    margin-bottom: 38px;
+}
+
+.sucesso_modal_direita h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #232323;
+}
+
+
+.sucesso_modal_direita input {
+    margin-top: 89px;
+    width: 212.61px;
+    height: 77px;
+    left: 519px;
+    top: 397px;
+    background: #404EED;
+    border-radius: 10px;
+    color: #FCFCFC;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+}
+
+.sucesso_modal_direita h3 {
+    margin-top: 18px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #232323;
+}

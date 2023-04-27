@@ -49,11 +49,14 @@ function checa_botao() {
   
     if (p1 !== null && p2 !== null && p3 !== null && link.length > 0) {
        bs.removeAttribute("disabled");
+       bs.classList.add("checked");
        console.log("Disabled removido");
+  
     }
     else {
         bs.disabled = true;
         console.log("Botão disabled");
+        bs.classList.remove("checked");
     }
      
   }
@@ -103,11 +106,16 @@ function checa_botao() {
 
   function remove_sucesso() {
     document.querySelector(".container_area_pedido").classList.remove("nao_mostra");
-    document.querySelector(".sucesso").classList.add("nao_mostra");  
-    document.querySelector(".modelo .selected").classList.remove;
-    document.querySelector(".gola .selected").classList.remove;
-    document.querySelector(".tecido .selected").classList.remove;
-    console.log("Remove sucesso completo");
+    document.querySelector(".sucesso").classList.add("nao_mostra");
+    if (document.querySelector(".modelo .selected").classList) remove_selecoes_e_link();
+    checa_botao()
+ }
+
+ function remove_selecoes_e_link() {
+    document.querySelector(".modelo .selected").classList.remove("selected");
+    document.querySelector(".gola .selected").classList.remove("selected");
+    document.querySelector(".tecido .selected").classList.remove("selected");
+    document.querySelector(".link").value = '';
  }
 
   function deu_erro() {
@@ -134,11 +142,11 @@ function checa_botao() {
     elemento.innerHTML ="";
 
 
-    for (let i=0;i<=answer.data.length;i++) { 
+    for (let i=0;i<=9;i++) { 
         let d = answer.data;
         if (busca == 'Todos os modelos') {
                 elemento.innerHTML += `
-                <div class="camisetas_feitas" onclick="selecao_ultimos('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
+                <div class="camisetas_feitas" onclick="selecao_ultimos_modal('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                 <img src="${answer.data[i].image}"/>
                 <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
                 </div>
@@ -147,7 +155,7 @@ function checa_botao() {
             else if (answer.data[i].model == busca) {
                         console.log("Id: "+answer.data[i].id+" Model: "+answer.data[i].model+ " Imagem: "+answer.data[i].image);
                         elemento.innerHTML += `
-                        <div class="camisetas_feitas" onclick="selecao_ultimos('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
+                        <div class="camisetas_feitas" onclick="selecao_ultimos_modal('${d[i].model}','${d[i].neck}','${d[i].material}','${d[i].image}','${d[i].owner}')">
                         <img src="${answer.data[i].image}"/>
                         <div class="criador"><p>Criador:</p> ${answer.data[i].owner}</div>
                         </div>
@@ -168,3 +176,40 @@ function checa_botao() {
         confirmar_pedido(owner);
     }
  }
+
+ function selecao_ultimos_modal(model, neck, material, image, owner) {
+    let modal = document.querySelector('.bloco_modal');
+
+    if (typeof modal == 'undefined' || modal === null)  return;
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    document.querySelector('.sucesso_modal').innerHTML = `
+        <img src="${image}"/>
+        <div class="sucesso_modal_direita">
+        <h1>${model} com gola ${neck} de ${material}</h1>
+        <div class="criador"><p>Criador:</p>${owner}</div>
+        <input class="button checked" type="button" value="Confirmar Pedido" onclick="confirmar_pedido_modal('${model}','${neck}','${material}','${image}','${owner}')"></input>
+        <h3 onclick="fechar_sucesso_modal()">Cancelar</h3>
+    `;
+ }
+
+
+function fechar_sucesso_modal() {
+    let modal = document.querySelector('.bloco_modal');
+
+    if (typeof modal == 'undefined' || modal === null) return;
+
+ 
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function confirmar_pedido_modal(model, neck, material, image, owner) {
+    selecao[0]=model;
+    selecao[1]=neck;
+    selecao[2]=material;
+    link = image;
+    confirmar_pedido(owner);
+}
